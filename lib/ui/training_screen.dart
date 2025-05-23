@@ -104,7 +104,10 @@ class TrainingScreen extends StatelessWidget {
                                 AppButton(
                                   text: "I remember",
                                   onPressed: () async {
-                                    await incrementProgress(currentWord.id);
+                                    if (currentWord.progress < 4) {
+                                      await incrementProgress(currentWord.id);
+                                    }
+
                                     viewModel.onKnowWord();
                                   },
                                   color: AppColors.violet,
@@ -124,7 +127,7 @@ class TrainingScreen extends StatelessWidget {
                       final knownCount = viewModel.knownCount;
                       final totalCount = words.length;
                       final notKnownCount = totalCount - knownCount;
-                      print(viewModel);
+
                       return Center(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,

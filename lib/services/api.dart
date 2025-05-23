@@ -12,7 +12,14 @@ String getTelegramUserId() {
 
 String? userDocId;
 
-Future<List<Word>> fetchWords(String telegramId) async {
+class FetchResult {
+  final List<Word> words;
+  final bool userFound;
+
+  FetchResult({required this.words, required this.userFound});
+}
+
+Future<FetchResult> fetchWords(String telegramId) async {
   try {
     final studentsQuery =
         await FirebaseFirestore.instance
@@ -22,6 +29,7 @@ Future<List<Word>> fetchWords(String telegramId) async {
 
     if (studentsQuery.docs.isNotEmpty) {
       userDocId = studentsQuery.docs.first.id;
+
       final wordsSnapshot =
           await FirebaseFirestore.instance
               .collection('students')
@@ -35,18 +43,20 @@ Future<List<Word>> fetchWords(String telegramId) async {
                 (doc) => Word(
                   id: doc.id,
                   text: doc.data()['learnword'] as String? ?? '',
+                  progress: doc.data()['progress'] as int? ?? 0,
                 ),
               )
               .toList();
 
-      return words;
+      return FetchResult(words: words, userFound: true);
     } else {
       print('User with this Telegram ID not found.');
     }
   } catch (e) {
     print('Error loading words: $e');
   }
-  return [];
+
+  return FetchResult(words: [], userFound: false);
 }
 
 Future<void> incrementProgress(String wordId) async {
