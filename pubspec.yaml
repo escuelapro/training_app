@@ -1,0 +1,28 @@
+name: training_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_redux: ^0.10.0
+  redux: ^5.0.0
+  flutter_svg: ^1.0.0
+  firebase_core: ^2.27.0
+  cloud_firestore: ^4.15.0
+  webview_flutter: ^4.2.2
+  js: ^0.7.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
