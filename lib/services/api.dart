@@ -6,8 +6,13 @@ import 'dart:js_interop';
 external int? get telegramUserId;
 
 String getTelegramUserId() {
-  final telegramId = telegramUserId?.toString() ?? '';
-  return telegramId;
+  try {
+    final telegramId = telegramUserId?.toString() ?? '';
+    return telegramId;
+  } catch (e) {
+    print('Error accessing telegramUserId: $e');
+    return '';
+  }
 }
 
 String? userDocId;

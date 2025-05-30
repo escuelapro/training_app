@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "play-youtube-video-200806"
-  }
+    "default": "escuela-pro"
+  },
+  "targets": {},
+  "etags": {}
 }

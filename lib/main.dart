@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
     return StoreProvider(
       store: store,
       child: MaterialApp(
-        title: 'Telegram Mini App',
+        title: 'Escuela training',
         theme: ThemeData(primarySwatch: Colors.blue),
         home: showTrainingScreen ? TrainingScreen() : NoUserScreen(),
       ),

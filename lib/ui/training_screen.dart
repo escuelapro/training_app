@@ -102,7 +102,7 @@ class TrainingScreen extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 AppButton(
-                                  text: "I remember",
+                                  text: "Я знаю",
                                   onPressed: () async {
                                     if (currentWord.progress < 4) {
                                       await incrementProgress(currentWord.id);
@@ -114,7 +114,7 @@ class TrainingScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 12),
                                 AppButton(
-                                  text: "I don't",
+                                  text: "Не знаю",
                                   onPressed: viewModel.onNextWord,
                                   color: AppColors.violet,
                                 ),
@@ -133,7 +133,7 @@ class TrainingScreen extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'Finished!',
+                              'Отлично! Все слова пройдены.',
                               style: TextStyle(
                                 fontSize: 28,
                                 color: AppColors.violet,
@@ -141,14 +141,14 @@ class TrainingScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 16),
                             Text(
-                              'Known words: $knownCount',
+                              'Знакомые слова: $knownCount',
                               style: TextStyle(
                                 fontSize: 24,
                                 color: AppColors.violet,
                               ),
                             ),
                             Text(
-                              'Unknown words: $notKnownCount',
+                              'Незнакомые слова: $notKnownCount',
                               style: TextStyle(
                                 fontSize: 24,
                                 color: AppColors.violet,
@@ -156,7 +156,7 @@ class TrainingScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 24),
                             AppButton(
-                              text: "Restart",
+                              text: "Пройти заново",
                               onPressed: viewModel.onRestart,
                               color: AppColors.violet,
                             ),
